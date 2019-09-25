@@ -11,4 +11,5 @@
 |
 */
 
-Route::get('/users', 'UserController@index');
+Route::get('users', 'UserController@index');
+Route::get('users/{search}', 'UserController@search');

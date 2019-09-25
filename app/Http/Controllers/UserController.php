@@ -13,4 +13,15 @@ class UserController extends Controller
 
         dd($users);
     }
+
+    public function search($term) 
+    {
+        $users = User::where('last_name', 'like', '%' . $term . '%')
+            ->orWhere('first_name', 'like', '%' . $term . '%')
+            ->orderBy('last_name', 'asc')
+            ->orderBy('first_name', 'asc')
+            ->get();
+
+        return response()->json($users);
+    }
 }
