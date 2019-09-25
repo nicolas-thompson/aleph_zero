@@ -13,7 +13,7 @@ class UserTest extends TestCase
     /** @test */
     public function the_database_is_populated_with_users() 
     {
-        $this->assertDatabaseHas('User', [
+        $this->assertDatabaseHas('Users', [
             'first_name' => 'Simon',
         ]);
     }
