@@ -16,14 +16,17 @@ class UserController extends Controller
 
     public function search(Request $request) 
     {
-        // dd($request->terms);
-
-        $users = User::where('last_name', 'like', '%' . $request->terms . '%')
+        $query = User::where('last_name', 'like', '%' . $request->terms . '%')
             ->orWhere('first_name', 'like', '%' . $request->terms . '%')
             ->orderBy('last_name', 'asc')
-            ->orderBy('first_name', 'asc')
-            ->get();
+            ->orderBy('first_name', 'asc');
+            
+        if($request->dupes){
+            // $query->groupBy('first_name');
+        }
 
-        return response()->json($users, 200);
+        $matches = $query->get();
+
+        return response()->json($matches, 200);
     }
 }
