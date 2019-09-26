@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="_token" content="{{csrf_token()}}" />
 
         <title>Laravel</title>
 
@@ -61,40 +62,58 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #showresults {
+                width:50%;
+                height:50px;
+                margiin:auto;
+                overflow:hidden;
+                display:block;
+            }
+
         </style>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Vitl
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <form id="myForm">
+                    <div class="form-group">
+                        <label for="search">Search:</label>
+                        <input type="text" class="form-control" id="search">
+                        <button class="btn btn-primary" id="ajaxSubmit">Submit</button>
+                    </div>
+                </form>
+                <div id="showresults"></div>
             </div>
+           
         </div>
+
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script>
+            jQuery(document).ready(function(){
+                jQuery('#ajaxSubmit').click(function(e){
+                console.log('here');
+                e.preventDefault();
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                    }
+                });
+                jQuery.ajax({
+                    url: "{{ url('/users/search') }}",
+                    method: 'post',
+                    data: {
+                        terms: jQuery('#search').val(),
+                    },
+                    success: function(result){
+                        console.log(JSON.stringify(result));
+                        $('#showresults').html(JSON.stringify(result));
+                    }});
+                });
+                });
+        </script>
     </body>
 </html>
