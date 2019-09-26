@@ -105,8 +105,18 @@
                         dupes: $('#dupes').is(':checked'),
                     },
                     success: function(result){
-                        console.log(JSON.stringify(result));
-                        $('#showresults').html(JSON.stringify(result));
+                        
+                        console.log(result);
+
+                        var html = '<table>';
+
+                        $.each(result, function(i, match) {
+                            html += '<tr><td>' + match.first_name + '</td><td>' + match.last_name + '</td><tr>';
+                        });
+
+                        html += '</table>';
+
+                        $('#showresults').append(html);
                     }});
                 });
                 });
