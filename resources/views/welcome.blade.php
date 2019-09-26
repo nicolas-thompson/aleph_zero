@@ -63,14 +63,6 @@
                 margin-bottom: 30px;
             }
 
-            #showresults {
-                width:50%;
-                height:50px;
-                margiin:auto;
-                overflow:hidden;
-                display:block;
-            }
-
         </style>
     </head>
     <body>
@@ -86,9 +78,10 @@
                         <button class="btn btn-primary" id="ajaxSubmit">Submit</button>
                     </div>
                 </form>
-                <div id="showresults"></div>
             </div>
-           
+            <div class="flex">
+                <div id="showresults"></div>
+            </div>            
         </div>
 
         <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
