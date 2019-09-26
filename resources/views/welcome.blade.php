@@ -101,7 +101,8 @@
                     url: "{{ url('/users/search') }}",
                     method: 'post',
                     data: {
-                        terms: jQuery('#search').val(),
+                        terms: $('#search').val(),
+                        dupes: $('#dupes').is(':checked'),
                     },
                     success: function(result){
                         console.log(JSON.stringify(result));
