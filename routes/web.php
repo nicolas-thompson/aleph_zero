@@ -11,5 +11,6 @@
 |
 */
 
+Route::get('/', 'HomeController@index');
 Route::get('users', 'UserController@index');
-Route::get('users/{search}', 'UserController@search');
+Route::post('users/search', 'UserController@search');
