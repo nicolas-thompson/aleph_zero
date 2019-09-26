@@ -75,6 +75,8 @@
                     <div class="form-group">
                         <label for="search">Search:</label>
                         <input type="text" class="form-control" id="search">
+                        <label for="dupes">exclude duplicates</label>
+                        <input type="checkbox" name="dupes" id="dupes">
                         <button class="btn btn-primary" id="ajaxSubmit">Submit</button>
                     </div>
                 </form>
