@@ -88,16 +88,15 @@
 
         <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script>
-            jQuery(document).ready(function(){
-                jQuery('#ajaxSubmit').click(function(e){
-                console.log('here');
+            $(document).ready(function(){
+                $('#ajaxSubmit').click(function(e){
                 e.preventDefault();
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
                     }
                 });
-                jQuery.ajax({
+                $.ajax({
                     url: "{{ url('/users/search') }}",
                     method: 'post',
                     data: {
@@ -106,8 +105,6 @@
                     },
                     success: function(result){
                         
-                        console.log(result);
-
                         var html = '<table>';
 
                         $.each(result, function(i, match) {
