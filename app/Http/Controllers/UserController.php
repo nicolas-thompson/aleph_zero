@@ -11,17 +11,19 @@ class UserController extends Controller
     {
         $users = User::all();
 
-        dd($users);
+        return response()->json($users, 200);
     }
 
-    public function search($term) 
+    public function search(Request $request) 
     {
-        $users = User::where('last_name', 'like', '%' . $term . '%')
-            ->orWhere('first_name', 'like', '%' . $term . '%')
+        // dd($request->terms);
+
+        $users = User::where('last_name', 'like', '%' . $request->terms . '%')
+            ->orWhere('first_name', 'like', '%' . $request->terms . '%')
             ->orderBy('last_name', 'asc')
             ->orderBy('first_name', 'asc')
             ->get();
 
-        return response()->json($users);
+        return response()->json($users, 200);
     }
 }
