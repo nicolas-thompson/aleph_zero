@@ -16,6 +16,10 @@ Run migrations:
 
 ``` $ php artisan migrate ```
 
+Run tests:
+
+``` $ vendor/bin/phpunit ```
+
 Notes:
 
 There is an issue with the group by clause in the search query.

@@ -13,7 +13,6 @@ class UserTest extends TestCase
     /** @test */
     public function the_database_is_populated_with_users() 
     {
-        // given we have users in  the database
         factory('App\User', 1200)->create([
             'first_name' => 'Simon',
             'last_name' => 'Wright',
