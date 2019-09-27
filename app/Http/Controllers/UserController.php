@@ -16,7 +16,7 @@ class UserController extends Controller
             ->orderBy('first_name', 'asc');
             
         if($request->dupes){
-            // $query->groupBy('first_name');
+            $query->groupBy('first_name');
         }
 
         $matches = $query->get();
