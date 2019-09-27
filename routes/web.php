@@ -12,5 +12,4 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('users', 'UserController@index');
 Route::post('users/search', 'UserController@search');
