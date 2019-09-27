@@ -65,7 +65,6 @@
 
             #showresults {
                 height:200px;
-                border: 1px solid black;
                 margin: 5px;
                 overflow: scroll;
             }
@@ -122,6 +121,7 @@
                         html += '</table>';
 
                         $('#showresults').append(html);
+                        $('#showresults').css("border", "1px solid black");
                     }});
                 });
                 });
