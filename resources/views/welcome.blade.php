@@ -63,9 +63,13 @@
                 margin-bottom: 30px;
             }
 
-            #showresults{
+            #showresults {
                 height:200px;
+                border: 1px solid black;
+                margin: 5px;
+                overflow: scroll;
             }
+
 
         </style>
     </head>
