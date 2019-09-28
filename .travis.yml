@@ -11,4 +11,4 @@ install:
   - composer install --no-interaction --working-dir src/
 
 script:
-  - src/vendor/bin/phpunit
+  - src/vendor/bin/phpunit /src
