@@ -6,4 +6,3 @@ php:
 install: skip
 
 script:
-  - vendor/bin/phpunit --coverage-text
