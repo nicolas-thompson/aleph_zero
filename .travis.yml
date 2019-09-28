@@ -3,6 +3,10 @@ language: php
 php:
   - '7.2'
 
-install: skip
+install:
+  - cp .env.travis .env
+  - composer self-update
+  - composer install --no-interaction
 
 script:
+  - vendor/bin/phpunit --coverage-text
