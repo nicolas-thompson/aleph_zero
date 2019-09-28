@@ -11,4 +11,4 @@ install:
   - composer install --no-interaction --working-dir src/
 
 script:
-  - docker-compose exec -T app vendor/bin/phpunit --coverage-clover=coverage.xml
+  - vendor/bin/phpunit
