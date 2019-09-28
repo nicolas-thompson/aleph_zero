@@ -10,6 +10,10 @@ class UserController extends Controller
 
     public function search(Request $request) 
     {
+        $request->validate([
+            'terms' => ['required', 'alpha'],
+        ]);
+
         $query = User::where('last_name', 'like', '%' . $request->terms . '%')
             ->orWhere('first_name', 'like', '%' . $request->terms . '%')
             ->orderBy('last_name', 'asc')
