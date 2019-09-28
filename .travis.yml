@@ -11,4 +11,4 @@ install:
   - composer install --no-interaction --working-dir src/
 
 script:
-  - phpunit --coverage-text
+  - vendor/bin/phpunit --coverage-text
