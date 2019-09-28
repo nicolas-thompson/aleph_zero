@@ -7,7 +7,7 @@ before_install:
   - composer self-update
 
 before_script:
-  - composer install --no-interaction
+  - composer install
 
 script:
   - vendor/bin/phpunit --coverage-text
