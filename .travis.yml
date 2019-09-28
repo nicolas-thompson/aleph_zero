@@ -4,7 +4,6 @@ php:
   - '7.2'
 
 install:
-  - cp .env.travis .env
   - composer self-update
   - composer install --no-interaction
 
