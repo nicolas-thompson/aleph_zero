@@ -3,9 +3,10 @@ language: php
 php:
   - '7.2'
 
-install:
-  - cp .env.travis .env
+before_install:
   - composer self-update
+
+before_script:
   - composer install --no-interaction
 
 script:
