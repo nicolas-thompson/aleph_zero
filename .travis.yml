@@ -11,4 +11,4 @@ install:
   - composer install --no-interaction --working-dir src/
 
 script:
-  - vendor/bin/phpunit
+  - $TRAVIS_BUILD_DIR/vendor/bin/phpunit
