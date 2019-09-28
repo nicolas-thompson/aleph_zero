@@ -4,7 +4,7 @@ php:
   - '7.2.2'
 
 before_install:
-  - cp .env.travis .env
+  - cp src/.env.travis src/.env
 
 install:
   - composer self-update
