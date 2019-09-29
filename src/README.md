@@ -38,6 +38,8 @@ Username: homestead
 
 Password: secret
 
+Port: 3307
+
 There is a file `/users.sql` containing an sql dump, use this to import data.
 
 
