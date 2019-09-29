@@ -4,13 +4,27 @@
 
 `$ docker-compose build && docker-compose up -d`
 
-`$ docker-compose exec php php /var/www/artisan migrate`
+`$ mv .example.env .env`
 
 Edit the ```.env``` file:
 
-`APP_URL=http://localhost:8080`
+```
+APP_URL=http://localhost:8080
 
-`DB_HOST=mysql`
+...
+
+DB_HOST=mysql
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+
+```
+
+
+`$ docker-compose exec php php /var/www/artisan migrate`
 
 Import data:
 
