@@ -1,30 +1,11 @@
-Setup
-$ composer install
+## Goals
 
-$ docker-compose build && docker-compose up -d
+- build a single page web app that allows a user to search for a given name in the list and display the results. The output should be ordered alphabetically by the users last name and first name (when last names match)
 
-$ docker-compose exec php php /var/www/artisan migrate
+- the front end should communicate with a back end PHP API via AJAX using a query parameter "terms" which contains the search value. A second optional boolean parameter "dupes" should be added to filter out duplicate entries. The data should be hosted on a MySQL or PostgreSQL database.
 
-Edit the .env file:
+- code just be fully annotated with meaningful comments and PHP code should be PSR compliant. You can use any PHP framework you like for the back end, however NO framework should be used for the front end (just pure JS).
 
-APP_URL=http://localhost:8080
+- ideally the application will be delivered as a self contained docker or vagrant image with minimal set up required, but this is not mandatory if it will take you over the allotted time. If you cannot package the application up via Docker/Vagrant then please provide the exported SQL. Any additional installation steps should be outlined in an included readme file.
 
-DB_HOST=mysql
-
-Import data:
-
-users.sql
-
-Navigate to:
-
-localhost:8080
-
-Notes:
-
-There is an issue with the group by clause in the search query.
-
-SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'vitl.users.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by (SQL: select * from `users` where `last_name` like %wright% or `first_name` like %wright% group by `first_name` order by `last_name` asc, `first_name` asc)
-
-The solution was to turn off mysql strict mode. Let's debate security?
-
-There is an issue with the command in the travis build process which runs the unit test. Because the application is now dockerized it can't find phunit in order the run the test.
+## To set up this project, please see the README.md inside /src which is the main application directory.
