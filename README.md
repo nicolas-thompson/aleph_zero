@@ -7,3 +7,5 @@
 - code just be fully annotated with meaningful comments and PHP code should be PSR compliant. You can use any PHP framework you like for the back end, however NO framework should be used for the front end (just pure JS).
 
 - ideally the application will be delivered as a self contained docker or vagrant image with minimal set up required, but this is not mandatory if it will take you over the allotted time. If you cannot package the application up via Docker/Vagrant then please provide the exported SQL. Any additional installation steps should be outlined in an included readme file.
+
+## To set up this project, please see the README.md inside `/src` which is the main application directory.
