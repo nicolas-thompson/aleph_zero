@@ -33,7 +33,9 @@ Import data:
 Connect to the database with your client using these credentials:
 
 Host: 127.0.0.1
+
 Username: homestead
+
 Password: secret
 
 There is a file `/users.sql` containing an sql dump, use this to import data.
