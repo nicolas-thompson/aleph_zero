@@ -2,6 +2,8 @@
 
 `$ composer install`
 
+`$ php artisan key:generate`
+
 `$ docker-compose build && docker-compose up -d`
 
 `$ mv .example.env .env`
@@ -43,5 +45,6 @@ There is an issue with the group by clause in the search query.
 The solution was to turn off mysql strict mode. Let's debate security?
 
 
-There is an issue with the command in the travis build process which runs the unit test.
-Because the application is now dockerized it can't find phunit in order the run the test.
+There is an issue with the command in the travis build process which runs the unit tests.
+
+Because the application is now dockerized it can't find phunit in order the run the unit tests.
