@@ -11,7 +11,7 @@ class UserController extends Controller
      * @param \Symfony\Component\HttpFoundation\Request $request
      * @return @return \Illuminate\Auth\Access\Response
      */
-    public function search(Request $request) 
+    public function search(Request $request): object
     {
         $request->validate([
             'terms' => ['required', 'alpha'],
