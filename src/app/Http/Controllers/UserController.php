@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    /**
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     * @return @return \Illuminate\Auth\Access\Response
+     */
     public function search(Request $request) 
     {
         $request->validate([
