@@ -22,7 +22,7 @@ class UserController extends Controller
             ->orderBy('last_name', 'asc')
             ->orderBy('first_name', 'asc');
             
-        if($request->dupes == 'true'){
+        if ($request->dupes == 'true') {
             $query->groupBy('first_name');
             $query->groupBy('last_name');
         }
