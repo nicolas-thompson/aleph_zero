@@ -2,11 +2,11 @@
 
 `$ composer install`
 
+`$ mv .example.env .env`
+
 `$ php artisan key:generate`
 
 `$ docker-compose build && docker-compose up -d`
-
-`$ mv .example.env .env`
 
 Edit the ```.env``` file:
 
@@ -42,11 +42,27 @@ Port: 3307
 
 There is a file `/users.sql` containing an sql dump, use this to import data.
 
+Run the tests:
 
+`$ vendor/bin/phpunit`
 
 Navigate to:
 
 `localhost:8080`
+
+Useful Docker commands:
+
+##### Kill all running containers.
+docker kill $(docker ps -q)
+
+##### Delete all stopped containers.
+docker rm $(docker ps -a -q)
+
+##### Delete all untagged images.
+docker rmi $(docker images -q -f dangling=true)
+
+##### Delete ALL images
+docker rmi $(docker images -q)
 
 Notes:
 
