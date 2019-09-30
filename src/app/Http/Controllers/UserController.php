@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     /**
      * @param \Symfony\Component\HttpFoundation\Request $request
-     * @return @return \Illuminate\Auth\Access\Response
+     * @return @return \Illuminate\Auth\Access\Response $response
      */
     public function search(Request $request): object
     {
