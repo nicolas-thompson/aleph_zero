@@ -1,5 +1,22 @@
 <?php
 
+use \Rollbar\Rollbar;
+use \Rollbar\Payload\Level;
+
+$config = array(
+    'access_token' => 'd69394c7b6ce474f9c57bff79f8bab3e',
+    'environment' => 'testing',
+);
+
+Rollbar::init($config);
+
+try {
+    throw new \Exception('test exception');
+} catch (\Exception $e) {
+    Rollbar::log(Level::ERROR, $e);
+}
+
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
