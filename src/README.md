@@ -1,12 +1,28 @@
 ## Setup
 
+From inside the `/src` directory...
+
 `$ composer install`
 
-`$ mv .example.env .env`
+`$ cp .env.example .env`
 
 `$ php artisan key:generate`
 
+This next step needs Docker installed locally.
+
+Mac - https://docs.docker.com/docker-for-mac/install/
+
+Linux - https://docs.docker.com/install/linux/docker-ce/ubuntu/
+
+Windows - https://docs.docker.com/docker-for-windows/
+
 `$ docker-compose build && docker-compose up -d`
+
+In case there are port binding issues. Stop Apache.
+
+Mac - `sudo apachectl stop`
+
+Linux - `sudo service apache2 stop`
 
 Edit the ```.env``` file:
 
