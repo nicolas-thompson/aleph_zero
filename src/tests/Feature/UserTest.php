@@ -13,27 +13,7 @@ class UserTest extends TestCase
     /** @test */
     public function the_database_is_populated_with_users() 
     {
-        // create users
-
-        factory('App\User', 1)->create([
-            'first_name' => 'Adam',
-            'last_name' => 'Ant',
-        ]);
-
-        factory('App\User', 1)->create([
-            'first_name' => 'Michal',
-            'last_name' => 'Manson',
-        ]);
-
-        factory('App\User', 1)->create([
-            'first_name' => 'Simon',
-            'last_name' => 'Wright',
-        ]);
-
-        factory('App\User', 1)->create([
-            'first_name' => 'Ziv',
-            'last_name' => 'Zaifman',
-        ]);
+        $this->createUsers();
 
         // assertions
 
@@ -56,30 +36,7 @@ class UserTest extends TestCase
     /** @test */
     public function it_can_return_a_sorted_list_of_matches()
     {
-        factory('App\User', 1)->create([
-            'first_name' => 'Adam',
-            'last_name' => 'Ant',
-        ]);
-
-        factory('App\User', 1)->create([
-            'first_name' => 'Michal',
-            'last_name' => 'Manson',
-        ]);
-
-        factory('App\User', 1)->create([
-            'first_name' => 'Richard',
-            'last_name' => 'Wright',
-        ]);
-
-        factory('App\User', 1)->create([
-            'first_name' => 'Simon',
-            'last_name' => 'Wright',
-        ]);
-
-        factory('App\User', 1)->create([
-            'first_name' => 'Ziv',
-            'last_name' => 'Zaifman',
-        ]);
+        $this->createUsers();
 
         $response = $this->json('POST', 'users/search', ['terms' => 'Wright']);
 
