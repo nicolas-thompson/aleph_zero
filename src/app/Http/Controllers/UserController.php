@@ -21,7 +21,8 @@ class UserController extends Controller
             ->orWhere('first_name', 'like', '%' . $request->terms . '%')
             ->orderBy('last_name', 'asc')
             ->orderBy('first_name', 'asc');
-            
+        
+        // should we exclude duplicates?
         if ($request->dupes == 'true') {
             $query->groupBy('first_name');
             $query->groupBy('last_name');
