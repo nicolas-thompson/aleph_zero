@@ -39,6 +39,8 @@ class UserTest extends TestCase
 
         $response = $this->json('POST', 'users/search', ['terms' => 'Wright']);
 
+        // assertions
+        
         $response->assertJson([
             [
                 'first_name' => 'Richard',
